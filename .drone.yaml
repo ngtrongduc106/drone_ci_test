@@ -1,0 +1,15 @@
+kind: pipline
+type: docker
+name: test
+
+steps:
+  - name: build-image
+    image: plugins/docker
+    settings:
+      repo: your-docker-hub-username/drone-ci-test
+      tags: latest
+      dockerfile: Dockerfile
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
